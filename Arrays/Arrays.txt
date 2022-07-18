@@ -1,0 +1,17 @@
+Array is a linear DS used to store similar type of data. It is ery easy to access any member of an array by using index.
+
+Insertion: 
+
+For Insertion you need to shift all the elements from the position you want to insert to right
+Then, the element is inserted in the given position
+
+Deletion:
+
+For Deletion of an Element all the elements needs to be shifted to towards the position, filling up the position while has to be deleted
+
+Limitations:
+
+Array can contain data of only Similar type. Heterogeneous elements cannnot be stored in array.
+Array is fixed size. Once declared can't be changed
+Insertion and deletion are very time taking as require shifting the elements. 
+Elements are stored in continuous memory locations. 
