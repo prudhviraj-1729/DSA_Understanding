@@ -1,53 +1,44 @@
-public class practice {
+public class practice{
     public static void main(String[] args) {
         int[] arr = new int[] { 1, 2, 3, 4, 5 };
-        int toSearch = 3;
-        int index = searchElement(arr, 0, arr.length - 1, toSearch);
-        System.out.println("Element found at index " + arr[index]);
-        System.out.println("Before Deletion");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
+        int indexToDelete = searchElement(arr, 0, arr.length, 3);
+        System.out.println("Element found at:" + indexToDelete);
         System.out.println("After Deletion");
-        int n = deleteElement(arr, index);
-        for (int i = 0; i < n; i++) {
+        int m = deleteElement(arr, indexToDelete);
+        for (int i = 0; i < m; i++) {
             System.out.print(arr[i] + " ");
         }
+        int x = insertElement(arr, arr.length, indexToDelete, 3);
         System.out.println("After Insertion");
-        int capacity = arr.length;
-        int m = insertElement(arr,capacity, arr.length-1, 3);
-        for(int i = 0 ; i < m; i++){
-            System.out.print(arr[i]+" ");
+        for (int i = 0; i < x; i++) {
+            System.out.print(arr[i] + " ");
         }
     }
 
-    static int insertElement(int[] arr, int capacity, int n, int key){
-        if(n > capacity){
-            return n;
-        }
+    static int insertElement(int[] arr, int n, int posToInsert, int elementToInsert) {
         int i;
-        for(i = n-1 ; (i >= 0 && arr[i] > key) ; i--){
-            arr[i+1] = arr[i];
+        for (i = posToInsert; i < n - 2; i++) {
+            arr[i + 1] = arr[i];
         }
-        arr[i+1] = key;
-        return n+1;
+        arr[posToInsert] = elementToInsert;
+        return n;
     }
     
-    static int deleteElement(int[] arr, int index) {
-        for (int i = index; i < arr.length - 1; i++) {
+    static int deleteElement(int[] arr, int indexTodelete) {
+        int i;
+        for (i = indexTodelete; i < arr.length-1; i++) {
             arr[i] = arr[i + 1];
         }
         return arr.length - 1;
     }
-
-    static int searchElement(int[] arr, int low, int high,int key) {
-        int mid = (low+high)/2;
-        if(key == arr[mid]){
+    static int searchElement(int[] arr, int low, int high, int key){
+        int mid = (low + high) / 2;
+        if (key == arr[mid]) {
             return mid;
         }
-        if(key > arr[mid]){
-            return searchElement(arr, mid+1, high, key);
+        if (key > arr[mid]) {
+            return searchElement(arr, mid + 1, high, key);
         }
-        return searchElement(arr, low ,mid-1, key);
+        return searchElement(arr, low, mid - 1, key);
     }
 }
