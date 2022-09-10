@@ -1,0 +1,13 @@
+Linkedlit is a linear data structure used to store collections of objects.
+A linkedlist is made of Individual Nodes while may be present at diff mem Locations. The need not be contiguous like arrays
+These nodes are connected to each other.(Linked to one other)
+A Node is made of Two parts - One to store the data and a link to connect to the next node.
+
+The First element or node in Linked List is called the Head and the last node Tail. The link of the tail node is always pointing to 0 which indicates the end of the List
+
+The Algorithm goes as:
+Create a new node with the given data
+If the Linked List is empty, then make this new node the head and the tail node
+Else,
+    Make the link of the tail node refer to the new node
+    Make the tail refer to the new node
