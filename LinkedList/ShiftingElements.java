@@ -16,6 +16,11 @@ public class ShiftingElements {
         int num = sc.nextInt();
         ls.shiftElementstoRight(ls, num);
         ls.display();
+        System.out.println();
+        System.out.println("Enter the Number by which the elements need to shift to left:");
+        num = sc.nextInt();
+        ls.shiftingElementstoLeft(ls, num);
+        ls.display();
         sc.close();
     }
 }
@@ -23,6 +28,25 @@ public class ShiftingElements {
 class Linkedlist {
     private Node head;
     private Node tail;
+
+    public void shiftingElementstoLeft(Linkedlist ls, int num){
+        if (num == 0) {
+            return;
+        }
+        Node current = this.head;
+        int count = 1;
+        while (count < num && current != null) {
+            current = current.getNext();
+            count++;
+        }
+        Node kthNode = current;
+        while (current.getNext() != null) {
+            current = current.getNext();
+        }
+        current.setNext(head);
+        head = kthNode.getNext();
+        kthNode.setNext(null);
+    }
 
     public void shiftElementstoRight(Linkedlist ls, int num) {
         if (num == 0) {
